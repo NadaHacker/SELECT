@@ -9,18 +9,17 @@ SELECT Algorithm
 #include <stdlib>
 #include "Select.h"
 /*
-< 3 4 3 44 55 | 2 1 566 33 21 45 | 44 21>
+< 0 1 2 3  4    5 6 7   8  9    10 11 12
+< 3 4 3 44 55 | 2 1 566 33 21 | 45 44 21>
 */
 int Select(int *A, int p, int r, int i){
-  if (r-p == 1)
-    return A[1];
-  int size = r - p + 1;
-  int 
-  for (int i = 0; i < (size/5)+1; i++){
-    
+  int size = r-p+1;
+  int medians[(size+4)/5];
+  for (int i = 0; i < size/5; i++){
+    medians[i] = insertionSort();
   }
-  for (int i = 0; i < 5; i++){
-    
+  for (int i = 0; i < size % 5; i++){
+
   }
 }
 /*

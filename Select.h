@@ -6,4 +6,11 @@ CS 315
 SELECT Algorithm
 */
 
-#include <stdlib>
+#ifndef SELECT_H_
+#define SELECT_H_
+
+int Select(int *A, int p, int r, int i);
+
+int Partition(int *A, int p, int r, int x);
+
+#endif
