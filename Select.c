@@ -9,10 +9,7 @@ SELECT Algorithm
 #include <stdlib.h>
 #include <stdio.h>
 #include "Select.h"
-/*
-< 0 1 2 3  4    5 6 7   8  9    10 11 12
-< 3 4 3 44 55 | 2 1 566 33 21 | 45 44 21>
-*/
+
 int medianIS(int A[], int end){
   for(int j = 1; j < end; j++){
     int key = A[j];
@@ -23,13 +20,14 @@ int medianIS(int A[], int end){
     }
     A[i + 1] = key;
   }
-  for (int i = 0; i < end; i++){
-    printf("%d: %d\n",i, A[i]);
+  if (end % 2 != 0){
+    printf("median(0dd): %d\n", A[(end/2)]);
+    return A[(end/2)];
   }
-  if (end % 2 != 0)
-    return A[(end/2)+1];
-  else 
-    return A[end/2];
+  else{
+    printf("median(even): %d\n", A[(end/2)-1]);
+    return A[(end/2)-1];
+  }
 }
 int Select(int *A, int p, int r, int i){
   int size = r-p+1;
@@ -38,22 +36,21 @@ int Select(int *A, int p, int r, int i){
     medians[j] = medianIS(A+p+j*5, 5);
   }
   if (j*5 < size){
-    medians[i] = medianIS(A+p+i*5, size % 5);
-    i++;
+    medians[j] = medianIS(A+p+j*5, size % 5);
+    j++;
   }
-  /* for (int i = 0; i < size/5+1; i++){ */
-  /*   printf("%d: %d\n",i, medians[i]); */
-  /* } */
+  if (j == 1){
+    return medians[j-1];
+  }
+  else{
+    int medofmeds = Select(medians, 0, j-1, i/2);
+    printf("medofmed: %d\n", medofmeds);
+  }
   return 0;
 }
 
 int main(){
   int A[] = {1, 4, 8, 9, 10, 30, 4, 3, 5, 7, 8};
-  // {1, 3, 4, 4, 5, 7, 8, 8, 9, 10, 30}
-  
-  /* for (int i = 0; i < 11; i++){ */
-  /*   printf("%d: %d\n",i, A[i]); */
-  /* } */
   int n = sizeof(A)/sizeof(A[0]), k = 5;
   int ans = Select(A, 0, n-1, k);
   return 0;
