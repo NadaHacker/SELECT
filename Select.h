@@ -1,16 +1,21 @@
 /*
 Jared Holzmeyer
 Dr. Morse
-CS 315
-2/21/19
-SELECT Algorithm
+CS315
+2/24/2019
+Quiz 5: #3
+Select.h
 */
 
-#ifndef SELECT_H_
-#define SELECT_H_
+#ifndef SELECT_H
+#define SELECT_H
 
-int Select(int *A, int p, int r, int i);
+int medianIS(int A[], int end);
 
-int Partition(int *A, int p, int r, int x);
+int Select(int * A, int p, int r, int i);
+
+void swap(int *a, int *b) ;
+
+int partition(int A[], int p, int r, int x);
 
 #endif
