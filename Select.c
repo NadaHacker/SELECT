@@ -8,7 +8,7 @@ Select.c
 */
 
 #include<stdlib.h>
-//#include<stdio.h>
+#include<stdio.h>
 #include "Select.h"
 
 int medianIS(int A[], int end){
@@ -114,14 +114,14 @@ int Select(int * A, int p, int r, int i) {
   return Select(A, k+1, r, i-k+p-1); 
 }
 
-/* // for testing purposes only */
-/* int main() */
-/* { */
-/*   //int A[] = {1, 4, 8, 9, 10, 30, 4, 3, 5, 7, 8}; */
-/*   int A[] = {4,66,99,1, 3, 7}; */
-/*   int n = sizeof(A)/sizeof(A[0]) */
-/*   int k = 4; */
-/*   int ordStat = Select(A, 0, n-1, k); */
-/*   printf("Order Statistic %d: %d\n", k, ordStat); */
-/*   return 0; */
-/* } */
+// for testing purposes only
+int main()
+{
+  //int A[] = {1, 4, 8, 9, 10, 30, 4, 3, 5, 7, 8};
+  int A[] = {4,66,99,1, 3, 7};
+  int n = sizeof(A)/sizeof(A[0]);
+  int k = 5;
+  int ordStat = Select(A, 0, n-1, k);
+  printf("Order Statistic %d: %d\n", k, ordStat);
+  return 0;
+}
